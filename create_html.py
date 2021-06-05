@@ -1,5 +1,6 @@
 
 def create_html(fileName, date, bride, groom, place, bridePhoto, groomPhoto, invitation):
+    fileName = fileName.replace(' ','')
     file = fileName+".html"
     f = open(file,'w')
 

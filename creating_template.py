@@ -51,7 +51,7 @@ def getValues(current_count):
                 SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 
         # The ID of spreadsheet.
-        SAMPLE_SPREADSHEET_ID = '1wuDiEF7OoxUF94OPERKkWoP0UMmG2xdzQSwQPqD1wKU'
+        SAMPLE_SPREADSHEET_ID = SPREADSHEET_ID
 
         service = build('sheets', 'v4', credentials=credentials)
 
@@ -67,6 +67,8 @@ def getValues(current_count):
 
 def create_folder(folderName):
     directory = folderName
+    directory = directory.replace(' ','')
+    folderName = folderName.replace(' ','')
     parent_dir = os.getcwd()
     template_dir = parent_dir + "/Template"
     
@@ -119,7 +121,7 @@ def create_repo(repo_path, repo_name):
     except FileExistsError as err:
         log.error(err)
         raise SystemExit(err)
-        return False
+        #return False
 
     return True
 
